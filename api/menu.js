@@ -1,6 +1,8 @@
 import express from "express";
 import { getMenu, getMenuById } from "#db/queries/menu";
+
 const router = express.Router();
+
 router.route("/").get(async (req, res) => {
   try {
     const menu = await getMenu();
@@ -10,11 +12,13 @@ router.route("/").get(async (req, res) => {
     res.status(500).json({ error: "Unable to fetch menu items" });
   }
 });
+
 router.route("/:id").get(async (req, res) => {
   const id = Number(req.params.id);
   if (Number.isNaN(id)) {
     return res.status(400).json({ error: "Invalid id" });
   }
+
   try {
     const menuItem = await getMenuById(id);
     if (!menuItem)
@@ -25,4 +29,5 @@ router.route("/:id").get(async (req, res) => {
     return res.status(500).json({ error: "Unable to fetch menu item" });
   }
 });
+
 export default router;

@@ -9,4 +9,3 @@ as well as routes to register and login.
 2. Change the database name from `foobar` in the `db:schema` script.
 3. Update the environment variables in `example.env` and rename the file to `.env`.
 
-Testing EZSplit readme 

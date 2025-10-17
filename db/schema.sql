@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS menu_table CASCADE;
-DROP TABLE IF EXISTS menu CASCADE;
-DROP TABLE IF EXISTS table_number CASCADE;
-DROP TABLE IF EXISTS customer CASCADE;
-DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS menu;
+DROP TABLE IF EXISTS menu_table;
+DROP TABLE IF EXISTS table_number;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id serial PRIMARY KEY,
@@ -25,25 +25,15 @@ CREATE TABLE table_number (
 CREATE TABLE menu (
   id serial PRIMARY KEY,
  items text NOT NULL ,
- prices float NOT NULL,
+ prices float  NOT NULL,
  image_url TEXT
 );
+
+
 
 CREATE TABLE menu_table (
   id serial PRIMARY KEY,
  table_id integer NOT NULL REFERENCES table_number(id) ON DELETE CASCADE,
  menu_id integer NOT NULL REFERENCES menu(id) ON DELETE CASCADE,
-
  UNIQUE (table_id, menu_id)
 );
-
-
-
-
-
-
-
-
-
-
-

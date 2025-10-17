@@ -1,8 +1,7 @@
 import { createCustomer } from "#db/queries/customer";
-import { getCustomers, getCustomerById } from "#db/queries/customer";
+import { getCustomers } from "#db/queries/customer";
 import express from "express";
 const router = express.Router();
-
 export default router;
 router
   .route("/")
