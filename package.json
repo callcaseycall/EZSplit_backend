@@ -10,7 +10,10 @@
     "start": "node --env-file=.env server.js",
     "dev": "node --watch --env-file=.env server.js",
     "test": "vitest",
+    "db:schema": "psql -d EZSplit -f db/schema.sql",
+
     "db:schema": "psql -d EZSPLIT -f db/schema.sql",
+
     "db:seed": "node --env-file=.env db/seed.js",
     "db:reset": "npm run db:schema && npm run db:seed"
   },
@@ -21,12 +24,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "pg": "^8.14.1",
-    
-    "@faker-js/faker": "^10.0.0"
-    
-   
-  
+    "pg": "^8.16.3"
   },
   "engines": {
     "node": ">=22.0.0"
