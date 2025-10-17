@@ -1,5 +1,4 @@
 import db from "#db/client";
-<<<<<<< HEAD
 import bcrypt from "bcrypt";
 
 export async function getAllMenus() {
@@ -31,14 +30,6 @@ export async function createMenu(items, prices) {
   `;
   const { rows } = await db.query(sql, [items, prices]);
   return rows[0];
-=======
-
-export async function createMenu(items, prices) {
-  const sql = `
-INSERT INTO menu (items, prices)
-VALUES ($1, $2)
-RETURNING *
-    `;
   const {
     rows: [menu],
   } = await db.query(sql, [items, prices]);
@@ -61,9 +52,18 @@ export async function getMenuById(id) {
     WHERE id = $1
     LIMIT 1
   `;
+
   const {
     rows: [menu],
   } = await db.query(sql, [id]);
   return menu || null;
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
+
+
+  const {
+    rows: [menu],
+  } = await db.query(sql, [id]);
+
+  return menu || null;
+
 }

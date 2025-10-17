@@ -6,13 +6,10 @@ import {
 } from "#db/queries/menuTable";
 import requireBody from "#middleware/requireBody";
 import { createToken } from "#utils/jwt";
-<<<<<<< HEAD
 
 const router = express.Router();
 
-=======
-const router = express.Router();
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
 // Get all menu-table entries
 router.get("/", async (req, res) => {
   try {
@@ -23,13 +20,10 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Failed to retrieve menu tables" });
   }
 });
-<<<<<<< HEAD
 
 // get menu by id (No need for post)
 
-=======
-// get menu by id (No need for post)
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -40,10 +34,8 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to retrieve menu table by ID" });
   }
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
 router.post("/", requireBody(["menu_id", "table_id"]), async (req, res) => {
   const { menu_id, table_id } = req.body;
   try {
@@ -55,8 +47,6 @@ router.post("/", requireBody(["menu_id", "table_id"]), async (req, res) => {
     res.status(500).json({ error: "Failed to create menu table" });
   }
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
 export default router;

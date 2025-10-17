@@ -1,3 +1,5 @@
+
+
 {
   "name": "ezsplit",
   "type": "module",
@@ -8,11 +10,10 @@
     "start": "node --env-file=.env server.js",
     "dev": "node --watch --env-file=.env server.js",
     "test": "vitest",
-<<<<<<< HEAD
     "db:schema": "psql -d EZSplit -f db/schema.sql",
-=======
+
     "db:schema": "psql -d EZSPLIT -f db/schema.sql",
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
     "db:seed": "node --env-file=.env db/seed.js",
     "db:reset": "npm run db:schema && npm run db:seed"
   },

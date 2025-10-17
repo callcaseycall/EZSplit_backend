@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import express from "express";
 import { createTableNumber, getAllTableNumbers } from "#db/queries/tableNumber";
 import requireBody from "#middleware/requireBody";
@@ -31,19 +30,33 @@ router.post("/", requireBody(["number"]), async (req, res) => {
 });
 
 export default router;
-=======
-import { getTableNumber } from "#db/queries/tableNumber";
+
+import {getAllTableNumber, getTableNumberId} from "#db/queries/tableNumber";
 import express from "express";
 const router = express.Router();
+
 export default router;
+
 
 router.route("/").get(async (req, res) => {
   try {
-    const table_number = await getTableNumber();
+    const table_number = await getAllTableNumber();
     res.status(200).json(table_number);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Unable to fetch table" });
+    res.status(500).json({ error: "Unable to fetch menu items" });
   }
 });
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
+
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const table_number= await getTableNumberId(id);
+    res.status(200).json(table_number);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to retrieve menu table by ID" });
+  }
+});
+

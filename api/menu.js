@@ -1,5 +1,4 @@
 import express from "express";
-<<<<<<< HEAD
 import { createMenu, getAllMenus, getMenuByTableId } from "#db/queries/menu";
 import requireBody from "#middleware/requireBody";
 import { createToken } from "#utils/jwt";
@@ -41,9 +40,6 @@ router.post("/", requireBody(["items", "prices"]), async (req, res) => {
   }
 });
 
-=======
-import { getMenu, getMenuById } from "#db/queries/menu";
-const router = express.Router();
 router.route("/").get(async (req, res) => {
   try {
     const menu = await getMenu();
@@ -68,5 +64,5 @@ router.route("/:id").get(async (req, res) => {
     return res.status(500).json({ error: "Unable to fetch menu item" });
   }
 });
->>>>>>> 0283254a4d61eaa1b74a30b3fc9db1db5b1d0f01
+
 export default router;
